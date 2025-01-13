@@ -1,5 +1,5 @@
 {
-  "name": "music-player",
+  "name": "music-shuffler",
   "private": true,
   "type": "module",
   "scripts": {
