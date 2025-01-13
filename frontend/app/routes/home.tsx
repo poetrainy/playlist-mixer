@@ -166,7 +166,6 @@ export default function Home() {
         <h1 className="text-teal-800 text-3xl font-bold">Shuffler</h1>
         <div className="flex flex-col justify-between items-end gap-3 md:flex-row md:w-[50rem]">
           <label className="flex flex-col gap-1 w-full">
-            {/* <span className="text-teal-600 text-sm font-bold">YouTube</span> */}
             <div className="relative">
               <span className="flex justify-center items-center w-12 h-11 text-white bg-[#DA1725] pl-1 absolute top-[2px] left-[2px] rounded-[6rem_0_0_6rem]">
                 <img src={ICON_YOUTUBE} className="size-6" />
@@ -181,7 +180,6 @@ export default function Home() {
             </div>
           </label>
           <label className="flex flex-col gap-1 w-full">
-            {/* <span className="text-teal-600 text-sm font-bold">Spotify</span> */}
             <div className="relative">
               <span className="flex justify-center items-center w-12 h-11 bg-[#2ebd59] pl-1 absolute top-[2px] left-[2px] rounded-[6rem_0_0_6rem]">
                 <img src={ICON_SPOTIFY} className="size-6" />
@@ -197,8 +195,9 @@ export default function Home() {
           </label>
           <button
             className="flex-none w-20 h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 focus-visible:outline-teal-600 disabled:bg-gray-300"
-            disabled={!youtubeUrl.length || !spotifyUrl.length}
-            onClick={() => search()}
+            disabled
+            // disabled={!youtubeUrl.length || !spotifyUrl.length}
+            // onClick={() => search()}
           >
             検索
           </button>
