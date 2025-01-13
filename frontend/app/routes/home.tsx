@@ -130,7 +130,7 @@ export default function Home() {
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const getYoutube = async () => {
+  const search = async () => {
     setError(false);
 
     const youtubeBaseParams = new URL(youtubeUrl).searchParams;
@@ -153,6 +153,12 @@ export default function Home() {
       (response) => setYoutubePlaylist(response)
     );
   };
+
+  // {error && (
+  //   <p>
+  //     プレイリストがヒットしませんでした。URLを確認し、もう一度お試しください。
+  //   </p>
+  // )}
 
   return (
     <>
@@ -192,114 +198,105 @@ export default function Home() {
           <button
             className="flex-none w-20 h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 focus-visible:outline-teal-600 disabled:bg-gray-300"
             disabled={!youtubeUrl.length || !spotifyUrl.length}
-            onClick={() => getYoutube()}
+            onClick={() => search()}
           >
             検索
           </button>
         </div>
       </div>
-      <main className="flex flex-col items-stretch gap-6 w-[95vw] max-w-[60rem] m-auto pt-24">
-        {error && (
-          <p>
-            プレイリストがヒットしませんでした。URLを確認し、もう一度お試しください。
-          </p>
-        )}
-        <div className="flex justify-between gap-10 flex-col md:flex-row">
-          <div className="flex flex-col items-start gap-6 flex-none size-fit max-w-[32rem]">
-            <div className="flex justify-center items-center size-full max-w-[32rem] max-h-[32rem] aspect-square overflow-hidden relative rounded-2xl shadow-2xl">
-              {playlist[currentIndex].type === "youtube" ? (
-                <>
-                  <div className="flex justify-center items-center h-full aspect-video overflow-hidden absolute">
-                    <div className="flex justify-center items-center aspect-video blur-md scale-105">
-                      <img src={playlist[currentIndex].track.thumbnail.url} />
-                    </div>
-                  </div>
-                  <div className="flex items-center aspect-video overflow-hidden relative z-auto">
+      <main className="flex justify-between items-stretch flex-col md:flex-row gap-10 w-[95vw] max-w-[60rem] m-auto">
+        <div className="flex flex-col items-start gap-6 flex-none size-fit max-w-[32rem] pt-24 sticky top-0">
+          <div className="flex justify-center items-center size-full max-w-[32rem] max-h-[32rem] aspect-square overflow-hidden relative rounded-2xl shadow-2xl">
+            {playlist[currentIndex].type === "youtube" ? (
+              <>
+                <div className="flex justify-center items-center h-full aspect-video overflow-hidden absolute">
+                  <div className="flex justify-center items-center aspect-video blur-md scale-105">
                     <img src={playlist[currentIndex].track.thumbnail.url} />
                   </div>
-                </>
-              ) : (
-                <img src={playlist[currentIndex].track.thumbnail.url} />
-              )}
+                </div>
+                <div className="flex items-center aspect-video overflow-hidden relative z-auto">
+                  <img src={playlist[currentIndex].track.thumbnail.url} />
+                </div>
+              </>
+            ) : (
+              <img src={playlist[currentIndex].track.thumbnail.url} />
+            )}
+          </div>
+          <div className="flex flex-col items-stretch gap-2 w-full">
+            <div className="flex items-center gap-1.5 text-gray-700">
+              <span
+                className={cvaCurrentType({
+                  type: playlist[currentIndex].type,
+                })}
+              >
+                <img
+                  src={currentIconMap[playlist[currentIndex].type ?? "youtube"]}
+                  className="size-5"
+                />
+              </span>
+              <span className="text-sm">
+                {playlist[currentIndex].track.artist}
+              </span>
             </div>
-            <div className="flex flex-col items-stretch gap-2 w-full">
-              <div className="flex items-center gap-1.5 text-gray-700">
-                <span
-                  className={cvaCurrentType({
-                    type: playlist[currentIndex].type,
-                  })}
-                >
-                  <img
-                    src={
-                      currentIconMap[playlist[currentIndex].type ?? "youtube"]
-                    }
-                    className="size-5"
-                  />
-                </span>
-                <span className="text-sm">
-                  {playlist[currentIndex].track.artist}
-                </span>
-              </div>
-              <div className="text-gray-900 text-2xl font-bold leading-9">
-                {playlist[currentIndex].track.title}
-              </div>
+            <div className="text-gray-900 text-2xl font-bold leading-9">
+              {playlist[currentIndex].track.title}
             </div>
-            <div className="flex justify-between w-full">
-              <button onClick={() => setCurrentIndex((prev) => prev - 1)}>
-                Prev
-              </button>
-              <button onClick={() => setCurrentIndex((prev) => prev + 1)}>
-                Next
-              </button>
-            </div>
-            <button
-              className="flex-none h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 focus-visible:outline-teal-600 disabled:bg-gray-300"
-              onClick={() => {
-                setPlaylist(shuffle(playlist, currentIndex));
-                setCurrentIndex(0);
-              }}
-            >
-              シャッフル
+          </div>
+          <div className="flex justify-between w-full">
+            <button onClick={() => setCurrentIndex((prev) => prev - 1)}>
+              Prev
+            </button>
+            <button onClick={() => setCurrentIndex((prev) => prev + 1)}>
+              Next
             </button>
           </div>
-          <ul className="flex flex-col items-stretch gap-1.5 flex-grow">
-            {playlist.map(({ track }, index) => (
-              <li key={track.id + index}>
-                <button
-                  className={cvaTrack({
+          <button
+            className="flex-none h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 focus-visible:outline-teal-600 disabled:bg-gray-300"
+            onClick={() => {
+              setPlaylist(shuffle(playlist, currentIndex));
+              setCurrentIndex(0);
+            }}
+          >
+            シャッフル
+          </button>
+        </div>
+        <ul className="flex flex-col items-stretch gap-1.5 flex-grow pt-24 pb-8">
+          {playlist.map(({ track }, index) => (
+            <li key={track.id + index}>
+              <button
+                className={cvaTrack({
+                  current: track.id === playlist[currentIndex].track.id,
+                })}
+                onClick={() => setCurrentIndex(index)}
+                disabled={currentIndex === index}
+              >
+                <div
+                  className={cvaTrackThumbnail({
                     current: track.id === playlist[currentIndex].track.id,
                   })}
-                  onClick={() => setCurrentIndex(index)}
-                  disabled={currentIndex === index}
                 >
+                  <img src={track.thumbnail.url} className="size-full" />
+                </div>
+                <div className="flex items-stretch flex-col w-[calc(100%_-_2.25rem_-_0.5rem)]">
                   <div
-                    className={cvaTrackThumbnail({
+                    className={cvaTrackTitle({
                       current: track.id === playlist[currentIndex].track.id,
                     })}
                   >
-                    <img src={track.thumbnail.url} className="size-full" />
+                    {track.title}
                   </div>
-                  <div className="flex items-stretch flex-col w-[calc(100%_-_2.25rem_-_0.5rem)]">
-                    <div
-                      className={cvaTrackTitle({
-                        current: track.id === playlist[currentIndex].track.id,
-                      })}
-                    >
-                      {track.title}
-                    </div>
-                    <div
-                      className={cvaTrackArtistName({
-                        current: track.id === playlist[currentIndex].track.id,
-                      })}
-                    >
-                      {track.artist}
-                    </div>
+                  <div
+                    className={cvaTrackArtistName({
+                      current: track.id === playlist[currentIndex].track.id,
+                    })}
+                  >
+                    {track.artist}
                   </div>
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
+                </div>
+              </button>
+            </li>
+          ))}
+        </ul>
       </main>
     </>
   );
