@@ -11,5 +11,7 @@ export default defineConfig({
     },
   },
   plugins: [reactRouter(), tsconfigPaths()],
-  // plugins: [reactRouter({ prerender: ["/", "/search"] }), tsconfigPaths()],
+  build: {
+    outDir: "dist",
+  },
 });
