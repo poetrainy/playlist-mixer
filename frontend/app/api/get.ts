@@ -1,4 +1,5 @@
 import {
+  API_URL,
   SPOTIFY_CLIENT_ID,
   SPOTIFY_CLIENT_SECRET,
   YOUTUBE_API_KEY,
@@ -9,7 +10,7 @@ export const getYoutubePlaylist: (
   playlistId: string
 ) => Promise<TrackType[]> = async (playlistId: string) => {
   const response: Response = await fetch(
-    `http://localhost:8000/youtube?playlistId=${playlistId}&key=${YOUTUBE_API_KEY}`,
+    `${API_URL}/youtube?playlistId=${playlistId}&key=${YOUTUBE_API_KEY}`,
     {
       method: "GET",
       headers: {
@@ -28,7 +29,7 @@ export const getSpotifyPlaylist: (
   playlistId: string
 ) => Promise<TrackType[]> = async (playlistId: string) => {
   const response: Response = await fetch(
-    `http://localhost:8000/spotify?playlistId=${playlistId}`,
+    `${API_URL}/spotify?playlistId=${playlistId}`,
     {
       method: "GET",
       headers: {

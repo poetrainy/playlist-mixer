@@ -1,5 +1,5 @@
 {
-  "name": "music-shuffler",
+  "name": "playlist-mixer",
   "private": true,
   "type": "module",
   "scripts": {

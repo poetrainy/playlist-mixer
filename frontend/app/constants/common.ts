@@ -1,5 +1,7 @@
 import type { TrackType } from "~/types/common";
 
+export const API_URL = import.meta.env.VITE_API_URL;
+
 export const YOUTUBE_API_URI = import.meta.env.VITE_GOOGLE_CLOUD_API_URI;
 export const YOUTUBE_API_KEY = import.meta.env.VITE_GOOGLE_CLOUD_API_KEY;
 
