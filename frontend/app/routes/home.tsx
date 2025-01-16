@@ -56,8 +56,8 @@ export default function Home() {
   const spotifyPlaylistId = spotifyUrl.split("playlist/")[1].split("?")[0];
 
   return (
-    <main className="flex flex-col items-center gap-8 py-40">
-      <Logo />
+    <main className="flex flex-col items-center gap-8 py-40 px-[2.5vw]">
+      <Logo homePage />
       <div className="flex flex-col justify-between items-end gap-2.5 w-full md:max-w-2xl">
         <label className="flex flex-col gap-1 w-full">
           <div className="relative">
