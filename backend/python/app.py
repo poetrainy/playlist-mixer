@@ -9,7 +9,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 YOUTUBE_URL = "https://www.googleapis.com/youtube/v3/playlistItems"
 
 app = Flask(__name__)
-CORS(app, origins="https://playlist-mixer.onrender.com/")
+CORS(app, origins="https://poetrainy-playlist-mixer.vercel.app/")
 
 def get_youtube_playlist(key: str, playlist_id: str):
   playlist_params = {"part": ["contentDetails", "snippet"], "playlistId": playlist_id, "maxResults": "100", "key": key}
