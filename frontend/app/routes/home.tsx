@@ -71,7 +71,7 @@ export default function Home() {
       <button
         className="flex items-center justify-center flex-none w-20 h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors focus-visible:outline-teal-600 enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 disabled:bg-gray-300"
         onClick={() => createSearchParams()}
-        disabled={!!youtubeUrl.length && !!spotifyUrl.length}
+        disabled={!youtubeUrl.length || !spotifyUrl.length}
       >
         Play!
       </button>
