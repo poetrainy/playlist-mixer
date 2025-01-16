@@ -44,12 +44,8 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  const [youtubeUrl, setYoutubeUrl] = useState(
-    "https://youtube.com/playlist?list=PLty2Cdanci1cdq0bluspoZ8QckDN4P4cz&feature=shared"
-  );
-  const [spotifyUrl, setSpotifyUrl] = useState(
-    "https://open.spotify.com/playlist/3jwwUaYQE4h2Y4S9idkdwF?si=BcNCY7nHTHC3i-WdJigh0A"
-  );
+  const [youtubeUrl, setYoutubeUrl] = useState("");
+  const [spotifyUrl, setSpotifyUrl] = useState("");
   const youtubePlaylistId = new URLSearchParams(
     new URL(youtubeUrl).searchParams
   ).get("list");
