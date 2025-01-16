@@ -13,6 +13,7 @@ import { DUMMY_SPOTIFY_TRACKS, DUMMY_YOUTUBE_TRACKS } from "~/constants/dummy";
 import { getThumbnailURL, shuffle } from "~/libraries/common";
 import { getSpotifyPlaylist, getYoutubePlaylist } from "~/api/get";
 import PlayContainer from "~/components/PlayContainer";
+import type { ClientLoaderFunctionArgs } from "react-router";
 
 const currentIconMap = {
   youtube: ICON_YOUTUBE_WHITE,
@@ -160,10 +161,19 @@ type PlayLoaderType = {
   spotifyPlaylist: TrackType[] | undefined;
 };
 
-export async function clientLoader(): Promise<PlayLoaderType> {
-  const searchParams = new URLSearchParams(window.location.search);
-  const youtubePlaylistId = searchParams.get("youtube") ?? "";
-  const spotifyPlaylistId = searchParams.get("spotify") ?? "";
+export async function clientLoader({
+  request,
+}: ClientLoaderFunctionArgs): Promise<PlayLoaderType> {
+  const searchParams = new URL(request.url).searchParams;
+  const youtubePlaylistId = searchParams.get("youtube");
+  const spotifyPlaylistId = searchParams.get("spotify");
+
+  if (!youtubePlaylistId || !spotifyPlaylistId) {
+    return {
+      youtubePlaylist: undefined,
+      spotifyPlaylist: undefined,
+    };
+  }
 
   const youtubePlaylist = await getYoutubePlaylist(youtubePlaylistId)
     .then((response) => response)
