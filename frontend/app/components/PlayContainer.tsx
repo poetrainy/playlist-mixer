@@ -44,7 +44,7 @@ export default function PlayContainer({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-between items-center gap-3 py-4 px-[2.5vw] md:fixed md:inset-[0_0_auto_0] z-[1] md:bg-gray-50">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-10 py-4 px-[2.5vw] md:fixed md:inset-[0_0_auto_0] z-[1] md:bg-gray-50">
         <Logo />
         <div className="flex items-center gap-1 md:gap-3 w-full md:max-w-[50rem] md:h-12 text-gray-900 bg-white border-2 border-gray-300 py-1 pl-3 pr-2 md:pl-5 md:pr-4 rounded-2xl md:rounded-full">
           <div className="flex flex-col flex-grow md:flex-row gap-0.5 md:gap-4">

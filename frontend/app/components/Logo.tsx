@@ -22,10 +22,10 @@ const cvaTitle = cva([], {
 
 export default function Logo({ homePage = false }: { homePage?: boolean }) {
   return (
-    <h1>
+    <h1 className="flex-none">
       <Link
         to={{ pathname: "/" }}
-        className="flex items-center gap-2 flex-none text-teal-800 font-bold outline-offset-8 focus-visible:outline-teal-600"
+        className="flex items-center gap-2 text-teal-800 font-bold outline-offset-8 focus-visible:outline-teal-600"
       >
         <img src={ICON_HEADPHONE} className={cvaIcon({ homePage })} />
         <span className={cvaTitle({ homePage })}>Playlist Mixer</span>
