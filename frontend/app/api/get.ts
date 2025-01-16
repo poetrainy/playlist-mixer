@@ -10,11 +10,12 @@ export const getYoutubePlaylist: (
   playlistId: string
 ) => Promise<TrackType[]> = async (playlistId: string) => {
   const response: Response = await fetch(
-    `${API_URL}/youtube?playlistId=${playlistId}&key=${YOUTUBE_API_KEY}`,
+    `${API_URL}/youtube?playlistId=${playlistId}`,
     {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Key: YOUTUBE_API_KEY,
       },
     }
   );
