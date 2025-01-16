@@ -9,8 +9,8 @@ import ICON_REPEAT from "~/icons/icon-repeat.svg";
 import ICON_SHUFFLE from "~/icons/icon-shuffle.svg";
 import type { PlaylistType, TrackType } from "~/types/common";
 import { cva } from "class-variance-authority";
-import { DUMMY_SPOTIFY_TRACKS, DUMMY_YOUTUBE_TRACKS } from "~/constants/common";
-import { shuffle } from "~/libraries/shuffle";
+import { DUMMY_SPOTIFY_TRACKS, DUMMY_YOUTUBE_TRACKS } from "~/constants/dummy";
+import { getThumbnailURL, shuffle } from "~/libraries/common";
 import { getSpotifyPlaylist, getYoutubePlaylist } from "~/api/get";
 import PlayContainer from "~/components/PlayContainer";
 
@@ -225,15 +225,19 @@ export default function Home({ loaderData }: { loaderData: PlayLoaderType }) {
             {playlist[currentIndex].type === "youtube" ? (
               <>
                 <img
-                  src={playlist[currentIndex].track.thumbnail.url}
+                  src={getThumbnailURL(playlist[currentIndex].track.thumbnail)}
                   className="size-full scale-150 blur-sm absolute"
                 />
                 <div className="flex items-center aspect-video overflow-hidden relative z-auto shadow-2xl">
-                  <img src={playlist[currentIndex].track.thumbnail.url} />
+                  <img
+                    src={getThumbnailURL(
+                      playlist[currentIndex].track.thumbnail
+                    )}
+                  />
                 </div>
               </>
             ) : (
-              <img src={playlist[currentIndex].track.thumbnail.url} />
+              <img src={playlist[currentIndex].track.thumbnail.default.url} />
             )}
           </div>
           <div className="flex flex-col items-stretch gap-2 flex-grow w-full md:w-[50vw] max-w-96 md:max-w-[32rem]">
@@ -313,7 +317,10 @@ export default function Home({ loaderData }: { loaderData: PlayLoaderType }) {
                     current: track.id === playlist[currentIndex].track.id,
                   })}
                 >
-                  <img src={track.thumbnail.url} className="size-full" />
+                  <img
+                    src={track.thumbnail.default.url}
+                    className="size-full"
+                  />
                 </div>
                 <div className="flex items-stretch flex-col flex-grow overflow-hidden">
                   <div

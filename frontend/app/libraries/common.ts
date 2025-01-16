@@ -1,4 +1,4 @@
-import type { PlaylistType } from "~/types/common";
+import type { PlaylistType, ThumbnailType } from "~/types/common";
 
 export const shuffle: (
   playlist: PlaylistType[],
@@ -16,4 +16,20 @@ export const shuffle: (
   }
 
   return [currentTrack, ...newPlaylist];
+};
+
+export const getThumbnailURL: (thumbnail: ThumbnailType) => string = (
+  thumbnail: ThumbnailType
+) => {
+  if (thumbnail.maxres) {
+    return thumbnail.maxres.url;
+  } else if (thumbnail.standard) {
+    return thumbnail.standard.url;
+  } else if (thumbnail.high) {
+    return thumbnail.high.url;
+  } else if (thumbnail.medium) {
+    return thumbnail.medium.url;
+  } else {
+    return thumbnail.default.url;
+  }
 };

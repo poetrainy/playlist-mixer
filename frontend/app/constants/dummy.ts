@@ -1,0 +1,1003 @@
+import type { TrackType } from "~/types/common";
+
+export const DUMMY_YOUTUBE_TRACKS: TrackType[] = [
+  {
+    artist: "Crazy Raccoon",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei41NkI0NEY2RDEwNTU3Q0M2",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/9Wx23JwfJRA/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "【MV】奇縁",
+  },
+  {
+    artist: "Gero Channel",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4yODlGNEE0NkRGMEEzMEQy",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/tk3d-z4zib4/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "BELOVED×SURVIVAL / Gero -Acoustic Live Arrange-",
+  },
+  {
+    artist: "まふまふちゃんねる",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4wMTcyMDhGQUE4NTIzM0Y5",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/T3mgg7KcFxE/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "[MV] Nectar／まふまふ feat. nqrse [オリジナル曲]",
+  },
+  {
+    artist: "Kuzuha Channel",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei41MjE1MkI0OTQ2QzJGNzNG",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/GOXNIHylbOo/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "【】fake face dance music カバードバイ歌ってみた by 葛葉【】",
+  },
+  {
+    artist: "戌亥とこ -Inui Toko-",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4wOTA3OTZBNzVEMTUzOTMy",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/aTkPHMixt4k/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "絶え間なく藍色／covered by 戌亥とこ",
+  },
+  {
+    artist: "戌亥とこ -Inui Toko-",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4xMkVGQjNCMUM1N0RFNEUx",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/mfBYJDVcuas/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "偏食／covered by 戌亥とこ",
+  },
+  {
+    artist: "戌亥とこ -Inui Toko-",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei41MzJCQjBCNDIyRkJDN0VD",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/_B9G2cwaiSg/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "MIRA／covered by 戌亥とこ",
+  },
+  {
+    artist: "Kanae Channel",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei45NDk1REZENzhEMzU5MDQz",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/k8jtzZws_xE/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "死んでしまったのだろうか / 歌わせていただきました。",
+  },
+  {
+    artist: "まふまふちゃんねる",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei5GNjNDRDREMDQxOThCMDQ2",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/jD1VhFHLc2I/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "ECHO／まふまふ feat.nqrse【歌ってみた】",
+  },
+  {
+    artist: "Chogakusei Official",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei40NzZCMERDMjVEN0RFRThB",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/aQIigBDBggA/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "【超学生×四季凪アキラ】ずうっといっしょ！ @歌ってみた",
+  },
+  {
+    artist: "月ノ美兎",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei5EMEEwRUY5M0RDRTU3NDJC",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/wRXAEZ0RKCw/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "人マニア / 原口沙輔 - 月ノ美兎withブラクラーズ(cover)",
+  },
+  {
+    artist: "町田ちま【にじさんじ】",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei45ODRDNTg0QjA4NkFBNkQy",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/wDIMtVk78L0/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "獣ゆく細道/町田ちまとジョー・力一(Live ver.)",
+  },
+  {
+    artist: "Chogakusei Official",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4zMDg5MkQ5MEVDMEM1NTg2",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/2iDTteXUQB0/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "【超学生×Gero】ファタール @歌ってみた",
+  },
+  {
+    artist: "Chogakusei Official",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei5ENDU4Q0M4RDExNzM1Mjcy",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/fY8ReipaFWI/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "【超学生×四季凪アキラ】ラグトレイン @歌ってみた",
+  },
+  {
+    artist: "三枝明那 / Saegusa Akina",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei41Mzk2QTAxMTkzNDk4MDhF",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/Jz7di6_ubTw/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "ミュウ / Rain Drops - 三枝明那(cover)",
+  },
+  {
+    artist: "nqrse",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei5EQUE1NTFDRjcwMDg0NEMz",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/603ELd2HJ_I/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "VVS / nqrse × ローレン・イロアス ( self cover )",
+  },
+  {
+    artist: "町田ちま【にじさんじ】",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei41QTY1Q0UxMTVCODczNThE",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/k9Eewd8TEWE/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "フォニイ - ツミキ / 町田ちま(Cover)",
+  },
+  {
+    artist: "てるとくん",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4yMUQyQTQzMjRDNzMyQTMy",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/AaDwwStHsxE/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "スカーレット / てるとくん【ゲーム実況者が歌ってみた】",
+  },
+  {
+    artist: "xea",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei45RTgxNDRBMzUwRjQ0MDhC",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/-0Tao1kcYds/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "ダーリン / 弾き語り",
+  },
+  {
+    artist: "わくバンチャンネル",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4yMDhBMkNBNjRDMjQxQTg1",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/4_PdAIe9fKg/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "ゲーム実況者わくわくバンド『週末』MV",
+  },
+  {
+    artist: "Kiel",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei5GM0Q3M0MzMzY5NTJFNTdE",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/iBSQ1MoUdcw/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "Radwimps - 愛し",
+  },
+  {
+    artist: "Suisei Channel",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei4zRjM0MkVCRTg0MkYyQTM0",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/lGQDHKzLznE/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "W●RK / 星街すいせい×葛葉(Cover)",
+  },
+  {
+    artist: "Meychan",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei5DNzE1RjZEMUZCMjA0RDBB",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/eREpXJKKX7I/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "東京は夜 Cover / めいちゃん feat.nqrse",
+  },
+  {
+    artist: "ChroNoiR",
+    id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei43MTI1NDIwOTMwQjIxMzNG",
+    thumbnail: {
+      default: {
+        height: 480,
+        url: "https://i.ytimg.com/vi/EJInP72F4W4/sddefault.jpg",
+        width: 640,
+      },
+    },
+    title: "[Cover] SPECIALZ / ChroNoiR",
+  },
+];
+
+export const DUMMY_SPOTIFY_TRACKS: TrackType[] = [
+  {
+    album: "Parade",
+    artist: "Gero",
+    id: "3JiAfX8QcBRgg2zXmOqFJD",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2731b6e65e1d176d818d07300ed",
+        width: 640,
+      },
+    },
+    title: "■",
+    url: "https://open.spotify.com/track/3JiAfX8QcBRgg2zXmOqFJD",
+  },
+  {
+    album: "ド屑 (cover)",
+    artist: "Gero",
+    id: "032s60ovpK9K26p03afjCR",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273cbb91a0d0fa0d3b0d0a3c931",
+        width: 640,
+      },
+    },
+    title: "ド屑 - cover",
+    url: "https://open.spotify.com/track/032s60ovpK9K26p03afjCR",
+  },
+  {
+    album: "TOKYO HAZE",
+    artist: "Gero",
+    id: "4xAPQXa4DR0gHO2u0uczTg",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273ad7204e7c38b6e77ed08b689",
+        width: 640,
+      },
+    },
+    title: "neon",
+    url: "https://open.spotify.com/track/4xAPQXa4DR0gHO2u0uczTg",
+  },
+  {
+    album: "泡沫の夜",
+    artist: "nqrse",
+    id: "2fGQH6lxM7dQbgY2rbtEIG",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27304f66914edb19422727929fb",
+        width: 640,
+      },
+    },
+    title: "泡沫の夜",
+    url: "https://open.spotify.com/track/2fGQH6lxM7dQbgY2rbtEIG",
+  },
+  {
+    album: "ずうっといっしょ！",
+    artist: "Tatsuya Kitani",
+    id: "291j3B0q0RBJ15y3TRTzA5",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27362ff735acde4bf398803a5fb",
+        width: 640,
+      },
+    },
+    title: "ずうっといっしょ！",
+    url: "https://open.spotify.com/track/291j3B0q0RBJ15y3TRTzA5",
+  },
+  {
+    album: "絶頂讃歌",
+    artist: "和ぬか",
+    id: "4cwO2KkiUe6iTfebjmSx6y",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273867ae2c769ccda0da3921283",
+        width: 640,
+      },
+    },
+    title: "絶頂讃歌",
+    url: "https://open.spotify.com/track/4cwO2KkiUe6iTfebjmSx6y",
+  },
+  {
+    album: "Wonder Wander World",
+    artist: "ChroNoiR",
+    id: "6DDLpzEljD1giixxCZgzI9",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273880c52dab022bfcb6bc4a6db",
+        width: 640,
+      },
+    },
+    title: "VVS",
+    url: "https://open.spotify.com/track/6DDLpzEljD1giixxCZgzI9",
+  },
+  {
+    album: "Tokyo Rendez-Vous",
+    artist: "King Gnu",
+    id: "2ANz2T37a2uN3d6w98h8vY",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273f0d02ba8facfe07e3e5a6eef",
+        width: 640,
+      },
+    },
+    title: "Vinyl",
+    url: "https://open.spotify.com/track/2ANz2T37a2uN3d6w98h8vY",
+  },
+  {
+    album: "来し方行く末",
+    artist: "Yu Takahashi",
+    id: "4cLFG05NlQTPWf3s5RIG5y",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273cb61335947d382160265484d",
+        width: 640,
+      },
+    },
+    title: "拒む君の手を握る",
+    url: "https://open.spotify.com/track/4cLFG05NlQTPWf3s5RIG5y",
+  },
+  {
+    album: "僕は君を問わない",
+    artist: "HIROBA",
+    id: "3YXjQ3yFoRPQOcqjzQr9fn",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273d65474998e7052f7ddad5105",
+        width: 640,
+      },
+    },
+    title: "凪",
+    url: "https://open.spotify.com/track/3YXjQ3yFoRPQOcqjzQr9fn",
+  },
+  {
+    album: "Sympa",
+    artist: "King Gnu",
+    id: "07FmAEayRQIXBcVcbUvI5j",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273e921fc686dbd113760a3c1ea",
+        width: 640,
+      },
+    },
+    title: "The hole",
+    url: "https://open.spotify.com/track/07FmAEayRQIXBcVcbUvI5j",
+  },
+  {
+    album: "水滴",
+    artist: "Meychan",
+    id: "5QmljPfN5J6WIjy3LkSNfi",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2733373a72d300f2b14f2bde234",
+        width: 640,
+      },
+    },
+    title: "水滴",
+    url: "https://open.spotify.com/track/5QmljPfN5J6WIjy3LkSNfi",
+  },
+  {
+    album: "帝国少女",
+    artist: "R Sound Design",
+    id: "5MyB548UcM38O2emb7HPDj",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273d0f389f4d1026b5b88d40385",
+        width: 640,
+      },
+    },
+    title: "帝国少女",
+    url: "https://open.spotify.com/track/5MyB548UcM38O2emb7HPDj",
+  },
+  {
+    album: "night times",
+    artist: "平田義久",
+    id: "1YVx9C6nSOwdSzdTPPj8gq",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27391eb3aac55ae44d93de87c44",
+        width: 640,
+      },
+    },
+    title: "東京は夜 (feat. Michael Kaneko & JOLNO)",
+    url: "https://open.spotify.com/track/1YVx9C6nSOwdSzdTPPj8gq",
+  },
+  {
+    album: "シャリューゲ",
+    artist: "*Luna",
+    id: "7o7hj9T2un9cmiSFyXbHLI",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2735a10f79c17d74e82a5750829",
+        width: 640,
+      },
+    },
+    title: "シャリューゲ",
+    url: "https://open.spotify.com/track/7o7hj9T2un9cmiSFyXbHLI",
+  },
+  {
+    album: "Love & Music -DISC1-",
+    artist: "Guiano",
+    id: "2qs8wvbeR3lUTVoCNOMEDd",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2731c93926927290640c33dd4af",
+        width: 640,
+      },
+    },
+    title: "死んでしまったのだろうか",
+    url: "https://open.spotify.com/track/2qs8wvbeR3lUTVoCNOMEDd",
+  },
+  {
+    album: "世界征服",
+    artist: "Neru",
+    id: "2ZklEUpucu9YDcsjV3TpUg",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273781c02e76922e1077edcf9b9",
+        width: 640,
+      },
+    },
+    title: "かなしみのなみにおぼれる",
+    url: "https://open.spotify.com/track/2ZklEUpucu9YDcsjV3TpUg",
+  },
+  {
+    album: "MUSICALOID #38 Act.2 彼方乃サヤ盤",
+    artist: "Sayaka Kanda",
+    id: "2GJe06xVHVqr6VQveHKJsi",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2739962329a72e15dd1a5e8037a",
+        width: 640,
+      },
+    },
+    title: "ガランド",
+    url: "https://open.spotify.com/track/2GJe06xVHVqr6VQveHKJsi",
+  },
+  {
+    album: "ダーリン",
+    artist: "須田景凪",
+    id: "3mkRGh8v7AOH31yQ38SVdt",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2736f9afd352289905b87035db5",
+        width: 640,
+      },
+    },
+    title: "ダーリン",
+    url: "https://open.spotify.com/track/3mkRGh8v7AOH31yQ38SVdt",
+  },
+  {
+    album: "Pale Blue",
+    artist: "Kenshi Yonezu",
+    id: "3tw4Jysd48kMcKsdnGYLee",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27308fe662f83f74bed74ba73c6",
+        width: 640,
+      },
+    },
+    title: "死神",
+    url: "https://open.spotify.com/track/3tw4Jysd48kMcKsdnGYLee",
+  },
+  {
+    album: "天涯",
+    artist: "ゆきむら。",
+    id: "19UUA8yQJHZx0eiYA7iRUJ",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27313810662d44e8e1f17be8bde",
+        width: 640,
+      },
+    },
+    title: "天涯",
+    url: "https://open.spotify.com/track/19UUA8yQJHZx0eiYA7iRUJ",
+  },
+  {
+    album: "コバルトブルーの白昼夢",
+    artist: "Eight",
+    id: "77HJqStuYCz0gk9bg4VAvD",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273e51f70926a36908910ae8670",
+        width: 640,
+      },
+    },
+    title: "とても素敵な六月でした",
+    url: "https://open.spotify.com/track/77HJqStuYCz0gk9bg4VAvD",
+  },
+  {
+    album: "熱異常 (feat. 足立レイ)",
+    artist: "いよわ",
+    id: "7zlsqQxGfiWIkctQDeTvmv",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2735e4004390696f9ca3ce24280",
+        width: 640,
+      },
+    },
+    title: "熱異常 (feat. 足立レイ)",
+    url: "https://open.spotify.com/track/7zlsqQxGfiWIkctQDeTvmv",
+  },
+  {
+    album: "TOWA",
+    artist: "YUZU",
+    id: "7GUqLj59vnqEketXemzdah",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2731f4e9803a04ff3d95da7032a",
+        width: 640,
+      },
+    },
+    title: "TOWA",
+    url: "https://open.spotify.com/track/7GUqLj59vnqEketXemzdah",
+  },
+  {
+    album: "No title-",
+    artist: "Reol",
+    id: "5pZVsZ8TOGly1KnYFmZ61B",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27348cbdef454b5636ee5ebeb34",
+        width: 640,
+      },
+    },
+    title: "No title",
+    url: "https://open.spotify.com/track/5pZVsZ8TOGly1KnYFmZ61B",
+  },
+  {
+    album: "ラグトレイン",
+    artist: "稲葉曇",
+    id: "3Kt6UReyCtmrYvbsHb3STj",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273ab8b5fedaddf9f6ca79684f9",
+        width: 640,
+      },
+    },
+    title: "ラグトレイン",
+    url: "https://open.spotify.com/track/3Kt6UReyCtmrYvbsHb3STj",
+  },
+  {
+    album: "渇愛",
+    artist: "香椎モイミ",
+    id: "2YIRCGY9hR3cuvV4sgyEld",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273a6391f39dc78bf66193406dc",
+        width: 640,
+      },
+    },
+    title: "偏食",
+    url: "https://open.spotify.com/track/2YIRCGY9hR3cuvV4sgyEld",
+  },
+  {
+    album: "MIRA",
+    artist: "Kanaria",
+    id: "20ZOXEroazqPVVYyGhbwoZ",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273352ef66baab4f70adaa41cda",
+        width: 640,
+      },
+    },
+    title: "MIRA",
+    url: "https://open.spotify.com/track/20ZOXEroazqPVVYyGhbwoZ",
+  },
+  {
+    album: "SEKAI NO OWARI 2010-2019",
+    artist: "SEKAI NO OWARI",
+    id: "7mC88sM9gPSTKGOFYwO0UU",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273d94cfb1ed5717c11cddfab7d",
+        width: 640,
+      },
+    },
+    title: "死の魔法",
+    url: "https://open.spotify.com/track/7mC88sM9gPSTKGOFYwO0UU",
+  },
+  {
+    album: "/ / // / /",
+    artist: "x0o0x_",
+    id: "4kbnzrUJqxGym0sDUzXeDC",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2730b01f5fb255a80c2b34ff709",
+        width: 640,
+      },
+    },
+    title: "/ / // / /",
+    url: "https://open.spotify.com/track/4kbnzrUJqxGym0sDUzXeDC",
+  },
+  {
+    album: "神楽色アーティファクト",
+    artist: "Mafumafu",
+    id: "5ZowILISwYOy1nCJuWjyUm",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2731969071da298499b6e911e1d",
+        width: 640,
+      },
+    },
+    title: "生まれた意味などなかった。",
+    url: "https://open.spotify.com/track/5ZowILISwYOy1nCJuWjyUm",
+  },
+  {
+    album: "Niji の詩 (Complete Edition)",
+    artist: "Tsuyoshi Domoto",
+    id: "7en1dk5P9xvlvS4EZZrU6i",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273ecebb137fe4d2d1dc096dca3",
+        width: 640,
+      },
+    },
+    title: "Technologia - 意思",
+    url: "https://open.spotify.com/track/7en1dk5P9xvlvS4EZZrU6i",
+  },
+  {
+    album: "Niji の詩 (Complete Edition)",
+    artist: "Tsuyoshi Domoto",
+    id: "53zecGAO4moVb5C3H8tq4N",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273ecebb137fe4d2d1dc096dca3",
+        width: 640,
+      },
+    },
+    title: "寧日",
+    url: "https://open.spotify.com/track/53zecGAO4moVb5C3H8tq4N",
+  },
+  {
+    album: "Delight Slight Light KISS",
+    artist: "Yumi Matsutoya",
+    id: "0GlBch8nzT4GqrAkgVZCbI",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273d827860cfe19a17d11f62643",
+        width: 640,
+      },
+    },
+    title: "リフレインが叫んでる",
+    url: "https://open.spotify.com/track/0GlBch8nzT4GqrAkgVZCbI",
+  },
+  {
+    album: "グロテスク",
+    artist: "Ken Hirai",
+    id: "1N3ZzZ1IYE0qejVWIHya6E",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273b04bc07eb71f3dc2db810937",
+        width: 640,
+      },
+    },
+    title: "グロテスク",
+    url: "https://open.spotify.com/track/1N3ZzZ1IYE0qejVWIHya6E",
+  },
+  {
+    album: "陽キャJKに憧れる陰キャJKの歌 (feat. 星川サラ) [Cover]",
+    artist: "音莉飴",
+    id: "3KH5ihGhIxQtLw7LftOIwZ",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273bf4293c9dedf1a44b958554f",
+        width: 640,
+      },
+    },
+    title: "陽キャJKに憧れる陰キャJKの歌 - Cover",
+    url: "https://open.spotify.com/track/3KH5ihGhIxQtLw7LftOIwZ",
+  },
+  {
+    album: "浴槽とネオンテトラ",
+    artist: "REISAI",
+    id: "07LC3H76ceeFbrA6XDjPxL",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2737e855b49970f9c6ac89e5768",
+        width: 640,
+      },
+    },
+    title: "浴槽とネオンテトラ",
+    url: "https://open.spotify.com/track/07LC3H76ceeFbrA6XDjPxL",
+  },
+  {
+    album: "パノラマ",
+    artist: "SUPER EIGHT",
+    id: "5sT8czKmjFBL38qFR3yUvC",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2736dff749c116b784d72596964",
+        width: 640,
+      },
+    },
+    title: "Steal your love",
+    url: "https://open.spotify.com/track/5sT8czKmjFBL38qFR3yUvC",
+  },
+  {
+    album: "apartment",
+    artist: "balloon",
+    id: "4olvtntxm82F4cfQOmbF2z",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27343e121c6b3bfac2413ad97c2",
+        width: 640,
+      },
+    },
+    title: "愛及屋烏",
+    url: "https://open.spotify.com/track/4olvtntxm82F4cfQOmbF2z",
+  },
+  {
+    album: "ファタール - Fatal",
+    artist: "GEMN",
+    id: "7gJD9BarjoFwL2BNQ0rpWT",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273e096bebbaeaa92c78d7043b4",
+        width: 640,
+      },
+    },
+    title: "ファタール - Fatal",
+    url: "https://open.spotify.com/track/7gJD9BarjoFwL2BNQ0rpWT",
+  },
+  {
+    album: "ピカレスクロマンサー",
+    artist: "Meychan",
+    id: "63aIvzCIMfbE5H8ZcGXxNy",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273e92490dade180007e28a1484",
+        width: 640,
+      },
+    },
+    title: "ピカレスクロマンサー",
+    url: "https://open.spotify.com/track/63aIvzCIMfbE5H8ZcGXxNy",
+  },
+  {
+    album: "セ－ラ－服と機関銃",
+    artist: "Hiroko Yakushimaru",
+    id: "4EEJk3Dy5MkWp9Rtk3zSLD",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273ad918307c15cbe9a42a0e54b",
+        width: 640,
+      },
+    },
+    title: "セーラー服と機関銃 - オリジナル・バージョン",
+    url: "https://open.spotify.com/track/4EEJk3Dy5MkWp9Rtk3zSLD",
+  },
+  {
+    album: "SPECIALZ",
+    artist: "King Gnu",
+    id: "0GWNtMohuYUEHVZ40tcnHF",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273ef96f1d50c9562c321ef207e",
+        width: 640,
+      },
+    },
+    title: "SPECIALZ",
+    url: "https://open.spotify.com/track/0GWNtMohuYUEHVZ40tcnHF",
+  },
+  {
+    album: "絶絶絶絶対聖域",
+    artist: "ano",
+    id: "3n4p9wJEgt4szBc92wPwmu",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273f8e67806c97cd70cec4db646",
+        width: 640,
+      },
+    },
+    title: "絶絶絶絶対聖域",
+    url: "https://open.spotify.com/track/3n4p9wJEgt4szBc92wPwmu",
+  },
+  {
+    album: "fuckin' sisters",
+    artist: "femme fatale",
+    id: "6djDWVF2HEowgnKJTbxNW0",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b2734a7d5082640a8ea48b560ca2",
+        width: 640,
+      },
+    },
+    title: "鼓動",
+    url: "https://open.spotify.com/track/6djDWVF2HEowgnKJTbxNW0",
+  },
+  {
+    album: "めろめろキャンセル♡x♡界隈",
+    artist: "Akuma no kiss Senritsu Kanano & Katy",
+    id: "7vLz1srJSB3UnEzIZcw0Zw",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b273970b95b92c262b459de553ad",
+        width: 640,
+      },
+    },
+    title: "めろめろキャンセル♡x♡界隈",
+    url: "https://open.spotify.com/track/7vLz1srJSB3UnEzIZcw0Zw",
+  },
+  {
+    album: "ピラピー",
+    artist: "ピラフ星人",
+    id: "6eUCoPHEay728GrnrDAQVh",
+    thumbnail: {
+      default: {
+        height: 640,
+        url: "https://i.scdn.co/image/ab67616d0000b27338d7a6a47be71ea83acefd67",
+        width: 640,
+      },
+    },
+    title: "ピラピー",
+    url: "https://open.spotify.com/track/6eUCoPHEay728GrnrDAQVh",
+  },
+];
+
+const youtubeItem = {
+  kind: "youtube#playlistItem",
+  etag: "oz3J7tXsa2U6HQxy3MgZ1tYs0Q4",
+  id: "UEx0eTJDZGFuY2kxY2RxMGJsdXNwb1o4UWNrRE40UDRjei43MTI1NDIwOTMwQjIxMzNG",
+  snippet: {
+    publishedAt: "2024-12-27T10:20:29Z",
+    channelId: "UC44kbSfsuVd12QyvDtaM5Fw",
+    title: "[Cover] SPECIALZ / ChroNoiR",
+    description:
+      "◆ 本家様\nKing Gnu - SPECIALZ\nhttps://youtu.be/fhzKLBZJC3w?si=mrVe2ymR2zU36r7R\n\n◆Vocal:ChroNoiR\n◇叶\n@Kanae \n◇葛葉\n@Kuzuha \n--------------------------------\n◇Illust/はたや\nhttps://x.com/genkiniikitaisu\n◇Vocal direction/Hayato Yamamoto\nhttps://x.com/hatch_bell\n◇MIX&Mastering/SILVANA\nhttps://x.com/silvana4687\n◇Movie/Cymo\nhttps://x.com/Re_lightnovel\n\n※未成年者の視聴者の方は、下記リンク先の注意事項もご覧ください。\nhttps://www.anycolor.co.jp/notice-for-minors",
+    thumbnails: {
+      default: {
+        url: "https://i.ytimg.com/vi/EJInP72F4W4/default.jpg",
+        width: 120,
+        height: 90,
+      },
+      medium: {
+        url: "https://i.ytimg.com/vi/EJInP72F4W4/mqdefault.jpg",
+        width: 320,
+        height: 180,
+      },
+      high: {
+        url: "https://i.ytimg.com/vi/EJInP72F4W4/hqdefault.jpg",
+        width: 480,
+        height: 360,
+      },
+      standard: {
+        url: "https://i.ytimg.com/vi/EJInP72F4W4/sddefault.jpg",
+        width: 640,
+        height: 480,
+      },
+      maxres: {
+        url: "https://i.ytimg.com/vi/EJInP72F4W4/maxresdefault.jpg",
+        width: 1280,
+        height: 720,
+      },
+    },
+    channelTitle: "Amane",
+    playlistId: "PLty2Cdanci1cdq0bluspoZ8QckDN4P4cz",
+    position: 23,
+    resourceId: { kind: "youtube#video", videoId: "EJInP72F4W4" },
+    videoOwnerChannelTitle: "ChroNoiR",
+    videoOwnerChannelId: "UCz6vnIbgiqFT9xUcD6Bp65Q",
+  },
+  contentDetails: {
+    videoId: "EJInP72F4W4",
+    videoPublishedAt: "2024-10-31T10:00:06Z",
+  },
+};

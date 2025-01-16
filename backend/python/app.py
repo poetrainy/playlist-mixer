@@ -22,7 +22,7 @@ def get_youtube_playlist(key: str, playlist_id: str):
       "id": item["id"],
       "title": item["snippet"]["title"],
       "artist": item["snippet"]["videoOwnerChannelTitle"],
-      "thumbnail": item["snippet"]["thumbnails"]["standard"],
+      "thumbnail": item["snippet"]["thumbnails"],
     })
     
   return result
@@ -40,7 +40,9 @@ def get_spotify_playlist(client_id:str, client_secret:str, playlist_id: str):
       "id": track["id"],
       "title": track["name"],
       "artist": track["artists"][0]["name"],
-      "thumbnail": track["album"]["images"][0],
+      "thumbnail": {
+        "default": track["album"]["images"][0],
+      },
       "album": track["album"]["name"],
       "url": track["external_urls"]["spotify"],
     }
