@@ -1,40 +1,10 @@
 import type { Route } from "./+types/home";
 import { cva } from "class-variance-authority";
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
-import { getSpotifyPlaylist, getYoutubePlaylist } from "~/api/get";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 import Logo from "~/components/Logo";
 import ICON_SPOTIFY_WHITE from "~/icons/icon-spotify-white.svg";
 import ICON_YOUTUBE_WHITE from "~/icons/icon-youtube-white.svg";
-
-const cvaLinkButton = cva(
-  [
-    "flex",
-    "items-center",
-    "justify-center",
-    "flex-none",
-    "w-20",
-    "h-12",
-    "text-white",
-    "px-3",
-    "rounded-md",
-    "font-bold",
-    "outline-offset-[3px]",
-    "transition-colors",
-    "focus-visible:outline-teal-600",
-  ],
-  {
-    variants: {
-      disabled: {
-        false: ["bg-teal-500", "hover:bg-teal-600", "active:bg-teal-700"],
-        true: ["bg-gray-300"],
-      },
-    },
-    defaultVariants: {
-      disabled: false,
-    },
-  }
-);
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -44,12 +14,26 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const navigate = useNavigate();
+
   const [youtubeUrl, setYoutubeUrl] = useState("");
   const [spotifyUrl, setSpotifyUrl] = useState("");
-  const youtubePlaylistId = new URLSearchParams(
-    new URL(youtubeUrl).searchParams
-  ).get("list");
-  const spotifyPlaylistId = spotifyUrl.split("playlist/")[1].split("?")[0];
+  const [error, setError] = useState(false);
+
+  const createSearchParams = () => {
+    setError(false);
+
+    const youtubePlaylistId = youtubeUrl.split("list=")[1]?.split("?")[0];
+    const spotifyPlaylistId = spotifyUrl.split("playlist/")[1]?.split("?")[0];
+
+    if (!!youtubePlaylistId && !!spotifyPlaylistId) {
+      navigate(
+        `play/?youtube=${youtubePlaylistId}&spotify=${spotifyPlaylistId}`
+      );
+    } else {
+      setError(true);
+    }
+  };
 
   return (
     <main className="flex flex-col items-center gap-8 py-40 px-[2.5vw]">
@@ -84,24 +68,15 @@ export default function Home() {
           </div>
         </label>
       </div>
-      {youtubeUrl.length && spotifyUrl.length ? (
-        <Link
-          className={cvaLinkButton()}
-          to={{
-            pathname: "/play",
-            search: `?youtube=${youtubePlaylistId}&spotify=${spotifyPlaylistId}`,
-          }}
-        >
-          Play!
-        </Link>
-      ) : (
-        <span
-          className={cvaLinkButton({
-            disabled: true,
-          })}
-        >
-          Play!
-        </span>
+      <button
+        className="flex items-center justify-center flex-none w-20 h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors focus-visible:outline-teal-600 enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 disabled:bg-gray-300"
+        onClick={() => createSearchParams()}
+        disabled={!!youtubeUrl.length && !!spotifyUrl.length}
+      >
+        Play!
+      </button>
+      {error && (
+        <p>URLが不明です。正しく入力されているか、もう一度確認してください。</p>
       )}
     </main>
   );
