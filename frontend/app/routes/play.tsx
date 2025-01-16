@@ -1,29 +1,25 @@
 import type { Route } from "./+types/home";
 import { useState } from "react";
 import ICON_SPOTIFY_WHITE from "~/icons/icon-spotify-white.svg";
-import ICON_SPOTIFY_BLAND from "~/icons/icon-spotify-bland.svg";
 import ICON_YOUTUBE_WHITE from "~/icons/icon-youtube-white.svg";
-import ICON_YOUTUBE_BLAND from "~/icons/icon-youtube-bland.svg";
 import ICON_PLAY from "~/icons/icon-play.svg";
 import ICON_PREV from "~/icons/icon-prev.svg";
 import ICON_NEXT from "~/icons/icon-next.svg";
 import ICON_REPEAT from "~/icons/icon-repeat.svg";
 import ICON_SHUFFLE from "~/icons/icon-shuffle.svg";
-import ICON_SEARCH from "~/icons/icon-search.svg";
-import { getSpotifyPlaylist, getYoutubePlaylist } from "~/api/get";
 import type { PlaylistType, TrackType } from "~/types/common";
 import { cva } from "class-variance-authority";
 import { DUMMY_SPOTIFY_TRACKS, DUMMY_YOUTUBE_TRACKS } from "~/constants/common";
 import { shuffle } from "~/libraries/shuffle";
-import Logo from "~/components/Logo";
-import { Link, useLocation, useNavigate } from "react-router";
+import { getSpotifyPlaylist, getYoutubePlaylist } from "~/api/get";
+import PlayContainer from "~/components/PlayContainer";
 
 const currentIconMap = {
   youtube: ICON_YOUTUBE_WHITE,
   spotify: ICON_SPOTIFY_WHITE,
 } as const;
 
-const cvaControlButton = cva(
+export const cvaControlButton = cva(
   [
     "flex",
     "items-center",
@@ -165,26 +161,26 @@ type PlayLoaderType = {
 };
 
 export async function clientLoader(): Promise<PlayLoaderType> {
-  // const searchParams = new URLSearchParams(window.location.search);
-  // const youtubePlaylistId = searchParams.get("youtube") ?? "";
-  // const spotifyPlaylistId = searchParams.get("spotify") ?? "";
+  const searchParams = new URLSearchParams(window.location.search);
+  const youtubePlaylistId = searchParams.get("youtube") ?? "";
+  const spotifyPlaylistId = searchParams.get("spotify") ?? "";
 
-  // const youtubePlaylist = await getYoutubePlaylist(youtubePlaylistId)
-  //   .then((response) => response)
-  //   .catch((error) => {
-  //     console.error(error);
-  //     return undefined;
-  //   });
-  // const spotifyPlaylist = await getSpotifyPlaylist(spotifyPlaylistId)
-  //   .then((response) => response)
-  //   .catch((error) => {
-  //     console.error(error);
-  //     return undefined;
-  //   });
+  const youtubePlaylist = await getYoutubePlaylist(youtubePlaylistId)
+    .then((response) => response)
+    .catch((error) => {
+      console.error(error);
+      return undefined;
+    });
+  const spotifyPlaylist = await getSpotifyPlaylist(spotifyPlaylistId)
+    .then((response) => response)
+    .catch((error) => {
+      console.error(error);
+      return undefined;
+    });
 
   return {
-    youtubePlaylist: undefined,
-    spotifyPlaylist: undefined,
+    youtubePlaylist,
+    spotifyPlaylist,
   };
 }
 
@@ -196,25 +192,17 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home({ loaderData }: { loaderData: PlayLoaderType }) {
-  const params = new URLSearchParams(useLocation().search);
-  const youtubeParams = params.get("youtube");
-  const spotifyParams = params.get("spotify");
-
-  const [youtubeUrl, setYoutubeUrl] = useState(
-    `https://youtube.com/playlist?list=${youtubeParams}`
-  );
-  const [spotifyUrl, setSpotifyUrl] = useState(
-    `https://open.spotify.com/playlist/${spotifyParams}`
-  );
   const { youtubePlaylist, spotifyPlaylist } = loaderData;
 
-  // if (!youtubePlaylist || !spotifyPlaylist) {
-  //   return (
-  //     <p>
-  //       プレイリストがヒットしませんでした。URLを確認し、もう一度お試しください。
-  //     </p>
-  //   );
-  // }
+  if (!youtubePlaylist || !spotifyPlaylist) {
+    return (
+      <PlayContainer>
+        <p className="pt-8 md:pt-32">
+          プレイリストがヒットしませんでした。URLを確認し、もう一度お試しください。
+        </p>
+      </PlayContainer>
+    );
+  }
 
   const [playlist, setPlaylist] = useState<PlaylistType[]>([
     ...(youtubePlaylist ?? DUMMY_YOUTUBE_TRACKS).map((track) => ({
@@ -229,66 +217,8 @@ export default function Home({ loaderData }: { loaderData: PlayLoaderType }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [repeat, setRepeat] = useState(false);
 
-  const youtubePlaylistId = new URLSearchParams(
-    new URL(youtubeUrl).searchParams
-  ).get("list");
-  const spotifyPlaylistId = spotifyUrl.split("playlist/")[1].split("?")[0];
-
-  const searchServices = [
-    {
-      name: "youtube",
-      icon: ICON_YOUTUBE_BLAND,
-      placeholder: "https://youtube.com/playlist?list=xxx",
-      value: youtubeUrl,
-      onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-        setYoutubeUrl(event.target.value),
-    },
-    {
-      name: "spotify",
-      icon: ICON_SPOTIFY_BLAND,
-      placeholder: "https://open.spotify.com/playlist/xxx",
-      value: spotifyUrl,
-      onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-        setSpotifyUrl(event.target.value),
-    },
-  ];
-
   return (
-    <>
-      <div className="flex flex-col md:flex-row justify-between items-center gap-3 py-4 px-[2.5vw] md:fixed md:inset-[0_0_auto_0] z-[1] md:bg-gray-50">
-        <Logo />
-        <div className="flex items-center gap-1 md:gap-3 w-full md:max-w-[50rem] md:h-12 text-gray-900 bg-white border-2 border-gray-300 py-1 pl-3 pr-2 md:pl-5 md:pr-4 rounded-2xl md:rounded-full">
-          <div className="flex flex-col flex-grow md:flex-row gap-0.5 md:gap-4">
-            {searchServices.map(
-              ({ name, icon, placeholder, value, onChange }) => (
-                <label key={name} className="flex items-center gap-1 w-full">
-                  <img src={icon} className="flex-none size-6" />
-                  <input
-                    name={name}
-                    className="w-full h-7 bg-transparent px-1 focus-visible:outline-teal-600"
-                    placeholder={placeholder}
-                    value={value}
-                    onChange={(event) => onChange(event)}
-                  />
-                </label>
-              )
-            )}
-          </div>
-          {youtubeUrl.length && spotifyUrl.length ? (
-            <Link
-              className={cvaControlButton({ type: "search" })}
-              to={{
-                pathname: "/play",
-                search: `?youtube=${youtubePlaylistId}&spotify=${spotifyPlaylistId}`,
-              }}
-            >
-              <img src={ICON_SEARCH} className="size-5" />
-            </Link>
-          ) : (
-            <span className={cvaControlButton({ type: "search" })}>Play!</span>
-          )}
-        </div>
-      </div>
+    <PlayContainer>
       <main className="flex justify-center md:justify-between items-stretch flex-col md:flex-row gap-[2vw] w-[95vw] max-w-[60rem] m-auto">
         <div className="flex flex-col items-start gap-6 flex-none size-fit max-w-[32rem] mx-auto md:m-0 md:pt-24 md:sticky top-0">
           <div className="flex justify-center items-center size-full md:size-[50vw] max-w-96 md:max-w-[32rem] md:max-h-[32rem] aspect-square overflow-hidden relative rounded-2xl shadow-2xl">
@@ -406,6 +336,6 @@ export default function Home({ loaderData }: { loaderData: PlayLoaderType }) {
           ))}
         </ul>
       </main>
-    </>
+    </PlayContainer>
   );
 }
