@@ -1,3 +1,4 @@
+import type { NavigateFunction } from "react-router";
 import type { PlaylistType, ThumbnailType } from "~/types/common";
 
 export const shuffle: (
@@ -31,5 +32,27 @@ export const getThumbnailURL: (thumbnail: ThumbnailType) => string = (
     return thumbnail.medium.url;
   } else {
     return thumbnail.default.url;
+  }
+};
+
+export const navigateWithSearchParams = (
+  navigate: NavigateFunction,
+  youtubeURL: string,
+  spotifyURL: string,
+  setIsLoading: (value: React.SetStateAction<boolean>) => void,
+  setIsError: (value: React.SetStateAction<boolean>) => void
+) => {
+  setIsError(false);
+
+  const youtubePlaylistId = youtubeURL.split("list=")[1]?.split("?")[0];
+  const spotifyPlaylistId = spotifyURL.split("playlist/")[1]?.split("?")[0];
+
+  if (!!youtubePlaylistId && !!spotifyPlaylistId) {
+    navigate(
+      `/play/?youtube=${youtubePlaylistId}&spotify=${spotifyPlaylistId}`
+    );
+    setIsLoading(true);
+  } else {
+    setIsError(true);
   }
 };

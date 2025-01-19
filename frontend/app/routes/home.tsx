@@ -1,9 +1,46 @@
+import { cva } from "class-variance-authority";
 import type { Route } from "./+types/home";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Logo from "~/components/Logo";
-import ICON_SPOTIFY_BLAND from "~/icons/icon-spotify-bland.svg";
-import ICON_YOUTUBE_BLAND from "~/icons/icon-youtube-bland.svg";
+import { navigateWithSearchParams } from "~/libraries/common";
+import {
+  SEARCH_SERVICES_BASE,
+  ERROR_MESSAGE_RETRY,
+  ERROR_MESSAGE_URL_NOTFOUND,
+} from "~/constants/common";
+
+const cvaButton = cva(
+  [
+    "flex",
+    "items-center",
+    "justify-center",
+    "flex-none",
+    "min-w-20",
+    "h-12",
+    "text-white",
+    "px-3",
+    "rounded-md",
+    "font-bold",
+    "outline-offset-[3px]",
+    "transition-colors",
+
+    "focus-visible:outline-teal-600",
+  ],
+  {
+    variants: {
+      isLoading: {
+        false: [
+          "enabled:bg-teal-500",
+          "enabled:hover:bg-teal-600",
+          "enabled:active:bg-teal-700",
+          "disabled:bg-gray-300",
+        ],
+        true: ["bg-teal-500", "opacity-30", "cursor-wait"],
+      },
+    },
+  }
+);
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -15,43 +52,28 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const navigate = useNavigate();
 
-  const [youtubeUrl, setYoutubeUrl] = useState("");
-  const [spotifyUrl, setSpotifyUrl] = useState("");
-  const [error, setError] = useState(false);
+  const [youtubeURL, setYoutubeURL] = useState("");
+  const [spotifyURL, setSpotifyURL] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const createSearchParams = () => {
-    setError(false);
-
-    const youtubePlaylistId = youtubeUrl.split("list=")[1]?.split("?")[0];
-    const spotifyPlaylistId = spotifyUrl.split("playlist/")[1]?.split("?")[0];
-
-    if (!!youtubePlaylistId && !!spotifyPlaylistId) {
-      navigate(
-        `play/?youtube=${youtubePlaylistId}&spotify=${spotifyPlaylistId}`
-      );
-    } else {
-      setError(true);
-    }
+  const servicesMap = {
+    youtube: {
+      value: youtubeURL,
+      onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
+        setYoutubeURL(event.target.value),
+    },
+    spotify: {
+      value: spotifyURL,
+      onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
+        setSpotifyURL(event.target.value),
+    },
   };
 
-  const searchServices = [
-    {
-      name: "youtube",
-      icon: ICON_YOUTUBE_BLAND,
-      placeholder: "https://youtube.com/playlist?list=xxx",
-      value: youtubeUrl,
-      onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-        setYoutubeUrl(event.target.value),
-    },
-    {
-      name: "spotify",
-      icon: ICON_SPOTIFY_BLAND,
-      placeholder: "https://open.spotify.com/playlist/xxx",
-      value: spotifyUrl,
-      onChange: (event: React.ChangeEvent<HTMLInputElement>) =>
-        setSpotifyUrl(event.target.value),
-    },
-  ];
+  const searchServices = SEARCH_SERVICES_BASE.map((service) => ({
+    ...service,
+    ...servicesMap[service.name],
+  }));
 
   return (
     <main className="flex flex-col items-center gap-8 py-40 px-[2.5vw]">
@@ -62,24 +84,37 @@ export default function Home() {
             <img src={icon} className="flex-none size-6 absolute left-4" />
             <input
               name={name}
-              className="w-full h-12 text-gray-900 bg-white border-2 border-gray-300 pl-12 pr-4 rounded-full outline-offset-4 focus-visible:outline-teal-600"
+              className="w-full h-12  bg-white border-2 border-gray-300 pl-12 pr-4 rounded-full outline-offset-4 focus-visible:outline-teal-600 disabled:text-gray-400"
               placeholder={placeholder}
               value={value}
+              disabled={isLoading}
               onChange={(event) => onChange(event)}
             />
           </label>
         ))}
       </div>
-      <button
-        className="flex items-center justify-center flex-none w-20 h-12 text-white px-3 rounded-md font-bold outline-offset-[3px] transition-colors focus-visible:outline-teal-600 enabled:bg-teal-500 enabled:hover:bg-teal-600 enabled:active:bg-teal-700 disabled:bg-gray-300"
-        onClick={() => createSearchParams()}
-        disabled={!youtubeUrl.length || !spotifyUrl.length}
-      >
-        Play!
-      </button>
-      {error && (
-        <p>URLが不明です。正しく入力されているか、もう一度確認してください。</p>
-      )}
+      <div className="flex flex-col items-center gap-4">
+        <button
+          className={cvaButton({ isLoading })}
+          onClick={() =>
+            navigateWithSearchParams(
+              navigate,
+              youtubeURL,
+              spotifyURL,
+              setIsLoading,
+              setIsError
+            )
+          }
+          disabled={!youtubeURL.length || !spotifyURL.length || isLoading}
+        >
+          {isLoading ? "Loading..." : "Play!"}
+        </button>
+        {isError && (
+          <p className="text-sm font-bold">
+            {`${ERROR_MESSAGE_URL_NOTFOUND}${ERROR_MESSAGE_RETRY}`}
+          </p>
+        )}
+      </div>
     </main>
   );
 }

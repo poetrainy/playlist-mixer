@@ -13,7 +13,11 @@ import { DUMMY_SPOTIFY_TRACKS, DUMMY_YOUTUBE_TRACKS } from "~/constants/dummy";
 import { getThumbnailURL, shuffle } from "~/libraries/common";
 import { getSpotifyPlaylist, getYoutubePlaylist } from "~/api/get";
 import PlayContainer from "~/components/PlayContainer";
-import type { ClientLoaderFunctionArgs } from "react-router";
+import type { ClientLoaderFunctionArgs, MetaArgs } from "react-router";
+import {
+  ERROR_MESSAGE_PLAYLIST_NOTFOUND,
+  ERROR_MESSAGE_RETRY,
+} from "~/constants/common";
 
 const currentIconMap = {
   youtube: ICON_YOUTUBE_WHITE,
@@ -32,6 +36,8 @@ export const cvaControlButton = cva(
     "focus-visible:outline-teal-600",
     "focus-visible:outline-2",
     "focus-visible:outline-offset-[3px]",
+
+    "disabled:opacity-30",
   ],
   {
     variants: {
@@ -54,6 +60,10 @@ export const cvaControlButton = cva(
         play: ["size-14", "md:size-20"],
         option: ["w-[calc(50%_-_-0.25rem)]", "h-8", "md:h-10"],
         search: ["size-8"],
+      },
+      isLoading: {
+        false: [],
+        true: ["cursor-wait"],
       },
     },
     defaultVariants: {
@@ -194,7 +204,15 @@ export async function clientLoader({
   };
 }
 
-export function meta({}: Route.MetaArgs) {
+export function HydrateFallback() {
+  return (
+    <PlayContainer>
+      <p className="pt-8 md:pt-32">Loading...</p>
+    </PlayContainer>
+  );
+}
+
+export function meta({}: MetaArgs) {
   return [
     { title: "Playlist Mixer" },
     { name: "description", content: "Shuffle YouTube & Spotify Playlists" },
@@ -208,7 +226,7 @@ export default function Home({ loaderData }: { loaderData: PlayLoaderType }) {
     return (
       <PlayContainer>
         <p className="pt-8 md:pt-32">
-          プレイリストがヒットしませんでした。URLを確認し、もう一度お試しください。
+          {`${ERROR_MESSAGE_PLAYLIST_NOTFOUND}${ERROR_MESSAGE_RETRY}`}
         </p>
       </PlayContainer>
     );
