@@ -204,14 +204,6 @@ export async function clientLoader({
   };
 }
 
-export function HydrateFallback() {
-  return (
-    <PlayContainer>
-      <p className="pt-8 md:pt-32">Loading...</p>
-    </PlayContainer>
-  );
-}
-
 export function meta({}: MetaArgs) {
   return [
     { title: "Playlist Mixer" },
